@@ -43,7 +43,7 @@ class Roles extends Seeder
         Role::create([
             'id' => 3,
             '_id' => Uuid::generate(4),
-            'name' => 'user',
+            'name' => 'super',
             'is_active' => true,
             'created_by' => 1,
             'updated_by' => 1,
@@ -52,7 +52,7 @@ class Roles extends Seeder
         Role::create([
             'id' => 4,
             '_id' => Uuid::generate(4),
-            'name' => 'developer',
+            'name' => 'PI',
             'is_active' => true,
             'created_by' => 1,
             'updated_by' => 1,

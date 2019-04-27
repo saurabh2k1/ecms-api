@@ -9,6 +9,16 @@ class Role extends BaseModel
     use SoftDeletes;
 
     protected $dates = ['deleted_at'];
+    protected $hidden = [
+        'pivot',
+        'id',
+        'created_by',
+        'created_at',
+        'updated_by',
+        'updated_at',
+        'deleted_at',
+        
+        ];
 
     public function users()
     {

@@ -60,6 +60,7 @@ class User extends BaseModel implements
         'confirm_code',
         'confirmed_at',
         'deleted_at',
+        'pivot',
     ];
 
     protected $appends = [

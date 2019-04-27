@@ -21,7 +21,7 @@ class AuthController extends BaseController
             return $this->respondWithToken($token);
         }
 
-        return response('Unauthorized.', 401);
+        return response()->json( ['message' => 'Username or Password is wrong.'], 401);
     }
 
     /**
@@ -58,10 +58,15 @@ class AuthController extends BaseController
     {
         return response()->json([
             '_id' => Auth::user()->_id,
-            'jwt' => $token,
-            'token_type' => 'bearer',
+            'email' => Auth::user()->email,
+            'username' => Auth::user()->username,
+            'first_name' => Auth::user()->first_name,
+            'last_name' => Auth::user()->last_name,
+            'token' => $token,
+            // 'token_type' => 'bearer',
             'expires' => $this->guard()->factory()->getTTL() * 60,
-            'user' => $this->guard()->user(),
+            //  $this->guard()->user(),
+            'roles' => $this->guard()->user()->roles()->pluck('name'),
         ])->header('Authorization', sprintf('Bearer %s', $token));
     }
 
